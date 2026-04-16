@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+        // About
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+    Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+
+    // ✅ Semua pakai {product}, bukan {id}
+    Route::middleware(['can:manage-product'])->group(function () {
+        Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+        Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');
+        Route::delete('/product/delete/{product}', [ProductController::class, 'delete'])->name('product.delete');
+    });
 });
+
+
 
 require __DIR__.'/auth.php';
