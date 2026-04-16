@@ -1,25 +1,25 @@
 # 1.
-![Add Produk](ss/Prak5/add-produk.png)
+![Add Produk](ss/add-produk.png)
 
 ---
 
 # 2.
-![List Produk](ss/Prak5/list-produk.png)
+![List Produk](ss/list-produk.png)
 
 ---
 
 # 3.
-![Edit Produk](ss/Prak5/edit-produk.png)
+![Edit Produk](ss/edit-produk.png)
 
 ---
 
 # 4.
-![After Edit](ss/Prak5/after-edit.png)
+![After Edit](ss/after-edit.png)
 
 ---
 
 # 5.
-![Delete Produk](ss/Prak5/delete-produk.png)
+![Delete Produk](ss/delete-produk.png)
 
 ---
 
