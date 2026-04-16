@@ -4,34 +4,34 @@
 
 # 1. 
 
-!(ss/Prak5/add-produk)
+(ss/Prak5/add-produk.png)
 
 ---
 
 # 2.
-!(ss/Prak5/list-produk)
+(ss/Prak5/list-produk.png)
 
 ---
 
 # 3. 
 
-!!(ss/Prak5/edit-produk)
+(ss/Prak5/edit-produk.png)
 
 ---
 
 # 4. 
 
-!(ss/Prak5/after-edit)
+(ss/Prak5/after-edit.png)
 ---
 
 # 5. 
-!(ss/Prak5/delete-produk)
+(ss/Prak5/delete-produk.png)
 ---
 # 6. 
 
-!(ss/Prak5/user-database)
+(ss/Prak5/user-database.png)
 
 ---
 
 # 7.
-!(ss/Prak5/ganti-role)
+(ss/Prak5/ganti-role.png)
