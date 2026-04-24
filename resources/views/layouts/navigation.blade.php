@@ -22,7 +22,15 @@
                         {{ __('Product') }}
                     </x-nav-link>
                     @endcan
+                    {{-- Menu Todo untuk semua user yang login --}}
+                    <x-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.*')">
+                        {{ __('Todo') }}
+                    </x-nav-link>
 
+                    {{-- Menu Category untuk semua user yang login --}}
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
+                        {{ __('Category') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                          {{ __('About') }}
                      </x-nav-link>
@@ -88,7 +96,15 @@
                 {{ __('Product') }}
             </x-responsive-nav-link>
             @endcan
+            {{-- Menu Todo versi Mobile --}}
+            <x-responsive-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.*')">
+                {{ __('Todo') }}
+            </x-responsive-nav-link>
 
+            {{-- Menu Category versi Mobile --}}
+            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
+                {{ __('Category') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('About') }}
             </x-responsive-nav-link>
