@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,6 +34,22 @@ Route::middleware('auth')->group(function () {
         Route::put('/product/update/{product}', [ProductController::class, 'update'])->name('product.update');
         Route::delete('/product/delete/{product}', [ProductController::class, 'delete'])->name('product.delete');
     });
+    // Todo — semua user yang login bisa akses
+    Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
+    Route::get('/todo/create', [TodoController::class, 'create'])->name('todo.create');
+    Route::post('/todo', [TodoController::class, 'store'])->name('todo.store');
+    Route::get('/todo/edit/{todo}', [TodoController::class, 'edit'])->name('todo.edit');
+    Route::put('/todo/update/{todo}', [TodoController::class, 'update'])->name('todo.update');
+    Route::patch('/todo/complete/{todo}', [TodoController::class, 'complete'])->name('todo.complete');
+    Route::delete('/todo/delete/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
+
+    // Category — semua user yang login bisa akses
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::put('/category/update/{category}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/category/delete/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 });
 
 
