@@ -9,22 +9,17 @@ class Category extends Model
 {
     use HasFactory;
 
-    // kolom yang boleh diisi
-    protected $fillable = ['user_id', 'title'];
+    // Nama tabel sesuai migration
+    protected $table = 'category';
+
+    // Kolom yang boleh diisi
+    protected $fillable = ['name'];
 
     /**
-     * category dimiliki oleh satu User
+     * Category bisa punya banyak Product
      */
-    public function user()
+    public function products()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * category bisa punya banyak Todo
-     */
-    public function todos()
-    {
-        return $this->hasMany(Todo::class);
+        return $this->hasMany(Product::class);
     }
 }
