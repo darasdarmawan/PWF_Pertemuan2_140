@@ -1,87 +1,70 @@
 # Praktikum Web Framework - UCP 1
-# Dara S Darmawan - 20230140140
+# Dara Syauqi Darmawan - 20230140140
 
-## Todo & Category Management
-
-# 1. Todo Category
-
-![Todo Category](ss/TodoCategory-UCP1.png)
+## Category & Product Relationship
 
 ---
 
-# 2. Create Category
+# 1. Dashboard Admin
 
-![Create Category](ss/Create-Category-UCP1.png)
-
----
-
-# 3. After Create Category
-
-![After Create Category](ss/After-Create-Category-UCP1.png)
+![Dashboard Admin](ss/dashboard-admin-ucp1.png)
 
 ---
 
-# 4. Todo Page
+# 2. Dashboard User
 
-![Todo](ss/Todo-UCP1.png)
-
----
-
-# 5. Todo List
-
-![Todo List](ss/Todo-List-UCP1.png)
+![Dashboard User](ss/dashboard-user-ucp1.png)
 
 ---
 
-# 6. Todo Create
+# 3. Category List
 
-![Todo Create](ss/Todo-Create-UCP1.png)
-
----
-
-# 7. After Create Todo
-
-![After Create Todo](ss/After-Create-Todo-UCP1.png)
+![Category List](ss/category-ucp1.png)
 
 ---
 
-# 8. After Create Todo (Category)
+# 4. Add Category
 
-![After Create Todo Category](ss/After-Create-Todo(Category)-UCP1.png)
-
-
----
-
-# 9. Todo Complete
-
-![Todo Complete](ss/Todo-Complete-UCP1.png)
+![Add Category](ss/add-category-ucp1.png)
 
 ---
 
-# 10. Todo Delete
+# 5. Edit Category
 
-![Todo Delete](ss/Todo-Delete-UCP1.png)
+![Edit Category](ss/edit-category-ucp1.png)
 
 ---
 
-# 11. Delete Category
+# 6. Delete Category
 
 ![Delete Category](ss/Delete-Category-UCP1.png)
 
 ---
 
-# 12. Database Categories
+# 7. Category List Setelah Add Product
 
-![Database Categories](ss/Database-Categories-UCP1.png)
-
----
-
-# 13. Database Todos
-
-![Database Todos](ss/Database-todos-UCP1.png)
+![Category List After Add Product](ss/category-list-after-addproduct-ucp1.png)
 
 ---
 
-# 14. Changes
+# 8. Add Product (dengan Kategori)
 
-![Changes](ss/Changes-UCP1.png)
+![Add Product](ss/add-product-ucp1.png)
+
+---
+
+# 9. Product List
+
+![Product List](ss/product-list-ucp1.png)
+
+---
+
+# 10. Database Category
+
+![Database Category](ss/database-category-ucp1.png)
+
+---
+
+# 11. Database Product
+
+![Database Product](ss/database-product-ucp1.png)
