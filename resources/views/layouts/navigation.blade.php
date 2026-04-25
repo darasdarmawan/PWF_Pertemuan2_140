@@ -16,21 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     
-                    {{-- Gate: Menu Product hanya muncul untuk Admin --}}
-                    @can('manage-product')
+                    {{-- Menu Product muncul untuk semua user yang login --}}
                     <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                         {{ __('Product') }}
                     </x-nav-link>
-                    @endcan
-                    {{-- Menu Todo untuk semua user yang login --}}
-                    <x-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.*')">
-                        {{ __('Todo') }}
-                    </x-nav-link>
-
-                    {{-- Menu Category untuk semua user yang login --}}
+                    {{-- Menu Category hanya muncul untuk Admin --}}
+                    @can('manage-category')
                     <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
                         {{ __('Category') }}
                     </x-nav-link>
+                    @endcan
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                          {{ __('About') }}
                      </x-nav-link>
@@ -90,21 +85,16 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            {{-- Gate: Menu Product versi Mobile hanya muncul untuk Admin --}}
-            @can('manage-product')
+            {{-- Menu Product versi Mobile muncul untuk semua user yang login --}}
             <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                 {{ __('Product') }}
             </x-responsive-nav-link>
-            @endcan
-            {{-- Menu Todo versi Mobile --}}
-            <x-responsive-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.*')">
-                {{ __('Todo') }}
-            </x-responsive-nav-link>
-
-            {{-- Menu Category versi Mobile --}}
+            {{-- Menu Category versi Mobile hanya untuk Admin --}}
+            @can('manage-category')
             <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.*')">
                 {{ __('Category') }}
             </x-responsive-nav-link>
+            @endcan
             <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('About') }}
             </x-responsive-nav-link>
