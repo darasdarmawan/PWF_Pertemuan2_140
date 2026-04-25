@@ -4,24 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
     /**
-     * tampilkan daftar category milik user yang login
+     * Tampilkan daftar category beserta total product
      */
     public function index()
     {
-        // withcount agar bisa hitung jumlah todo per category
-        $categories = Category::where('user_id', Auth::id())
-                        ->withCount('todos')
-                        ->get();
+        // withCount agar bisa hitung total product per category
+        $categories = Category::withCount('products')->get();
         return view('category.index', compact('categories'));
     }
 
     /**
-     * tampilkan form buat category baru
+     * Tampilkan form tambah category baru
      */
     public function create()
     {
@@ -29,24 +26,22 @@ class CategoryController extends Controller
     }
 
     /**
-     * simpan category baru ke database
+     * Simpan category baru ke database
      */
     public function store(Request $request)
     {
-        // validasi input
+        // Validasi: name wajib diisi dan harus unik
         $request->validate([
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:category,name',
         ]);
 
-        Category::create([
-            'user_id' => Auth::id(),
-            'title'   => $request->title,
-        ]);
+        Category::create(['name' => $request->name]);
 
         return redirect()->route('category.index')->with('success', 'Category created successfully.');
     }
+
     /**
-     * tampilkan form edit category
+     * Tampilkan form edit category
      */
     public function edit(Category $category)
     {
@@ -54,22 +49,22 @@ class CategoryController extends Controller
     }
 
     /**
-     * update category di database
+     * Update category di database
      */
     public function update(Request $request, Category $category)
     {
-        // validasi input
+        // Validasi: name wajib dan unik kecuali milik sendiri
         $request->validate([
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:category,name,' . $category->id,
         ]);
 
-        $category->update(['title' => $request->title]);
+        $category->update(['name' => $request->name]);
 
         return redirect()->route('category.index')->with('success', 'Category updated successfully.');
     }
 
     /**
-     * hapus category dari database
+     * Hapus category dari database
      */
     public function destroy(Category $category)
     {

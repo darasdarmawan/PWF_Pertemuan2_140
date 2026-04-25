@@ -19,7 +19,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('product.create');
+        // Ambil semua category untuk dropdown
+        $categories = \App\Models\Category::all();
+        return view('product.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -29,6 +31,8 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'qty' => 'required|integer', 
             'price' => 'required|numeric',
+            // category_id boleh kosong
+            'category_id' => 'nullable|exists:category,id',
         ], [
             'name.required' => 'Nama produk wajib diisi.',
             'name.max' => 'Nama produk tidak boleh lebih dari 255 karakter.',
@@ -78,8 +82,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         Gate::authorize('update', $product);
-
-        return view('product.edit', compact('product'));
+        // Ambil semua category untuk dropdown
+        $categories = \App\Models\Category::all();
+        return view('product.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product)
@@ -89,7 +94,8 @@ class ProductController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'qty'  => 'required|integer|min:0',
-            'price' => 'required|numeric|min:0'
+            'price' => 'required|numeric|min:0',
+            'category_id' => 'nullable|exists:category,id'
         ]);
 
         $product->update($validated);
