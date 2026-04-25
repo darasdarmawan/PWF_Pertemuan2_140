@@ -4,28 +4,47 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
-                    <h2 class="text-2xl font-bold mb-6">Todo</h2>
+                    {{-- Header --}}
+                    <div class="flex items-center gap-3 mb-6">
+                        <a href="{{ route('category.index') }}"
+                            class="p-1.5 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </a>
+                        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Edit Category</h2>
+                    </div>
 
                     {{-- Form edit category --}}
-                    <form action="{{ route('category.update', $category->id) }}" method="POST">
+                    <form action="{{ route('category.update', $category->id) }}" method="POST" class="space-y-5">
                         @csrf
                         @method('PUT')
 
-                        {{-- Input Title --}}
-                        <div class="mb-4">
-                            <x-input-label for="title" value="Title" />
-                            <x-text-input id="title" name="title" type="text"
-                                class="mt-1 block w-full"
-                                :value="old('title', $category->title)" required />
-                            <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                                Category
+                            </label>
+                            <input type="text" id="name" name="name" value="{{ old('name', $category->name) }}"
+                                class="w-full px-4 py-2.5 rounded-lg border text-sm
+                                text-gray-900 dark:text-gray-100
+                                focus:outline-none focus:ring-2 focus:border-transparent transition
+                                {{ $errors->has('name')
+                                    ? 'border-red-500 bg-red-50 dark:bg-red-900/20 focus:ring-red-400'
+                                    : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:ring-indigo-500' }}">
+                            @error('name')
+                                <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
+                            @enderror
                         </div>
 
-                        {{-- Tombol Submit --}}
-                        <div class="flex gap-2">
-                            <x-primary-button>SAVE</x-primary-button>
-                            <a href="{{ route('category.index') }}">
-                                <x-secondary-button type="button">CANCEL</x-secondary-button>
+                        <div class="flex items-center justify-end gap-3 pt-2">
+                            <a href="{{ route('category.index') }}"
+                                class="px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                                Cancel
                             </a>
+                            <button type="submit"
+                                class="px-4 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition shadow-sm">
+                                Save Category
+                            </button>
                         </div>
                     </form>
 
