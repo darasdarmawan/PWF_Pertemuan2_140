@@ -16,7 +16,7 @@
 
 # 3. GET (By ID) Category
 
-![GET By ID Category](ss/get(by id)-category-prak9.png)
+![GET By ID Category](ss/getId-category-prak9.png)
 
 ---
 
@@ -46,7 +46,7 @@
 
 # 8. GET (By ID) Product
 
-![GET By ID Product](ss/get(by id)-product-prak9.png)
+![GET By ID Product](ss/getId-product-prak9.png)
 
 ---
 
